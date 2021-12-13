@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNHAS03-PROJEK KELOMPOK 1</title>
+
+    <!-- WEB FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+		
+	<!-- BOOTSTRAP -->
+	<link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+	<!-- FONT AWESOME -->
+	<link rel="stylesheet" href="{{url_for('static', filename = 'css/font-awesome.min.css')}}">
+	<!-- CUSTOM STYLING -->
+	<link href="{{url_for('static', filename = 'css/styles.css')}}" rel="stylesheet">
+	<!-- PRELOADER -->	
+	<link href="{{url_for('static', filename = 'css/loader.css')}}" rel="stylesheet">
+
+
+</head>
+<body>
+    <section id="header">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8">
+                    <h1 class="white-text">Selamat Datang di Projek Kami,</h1>
+                    <h1 class="white-text">Segmentasi wilayah</h1>
+                    <h5 class="white-text">berdasarakan indeks kemiskinan di Sulawesi Selatan dengan metode K-Means.</h5>
+                    <div id="countdown" class="white-text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="animation">
+        <a class="arrow-down-animation" data-scroll href="#about"><i class="fa fa-angle-down"></i></a>
+        </div>
+    </section>
+
+
+    <section id="about">
+        <div class="container">
+            <div class="row text-center">
+                <h2>Prediksi wilayahmu sekarang</h2>
+                <form method="post" action="/">
+                    <p>Nama Wilayah</p>
+                    <p><input type="text" name="var"></p>
+                    <p>Indeks Kedalaman Kemiskinan</p>
+                    <p><input type="number" step ="0.01" name="x1"></p>
+                    <p>Indeks Keparahan Kemiskinan</p>
+                    <p><input type="number" step ="0.01" name="x2"></p>
+                    <p>Persentase Kemiskinan</p>
+                    <p><input type="number" step="0.01" name="x3"></p>
+                    <input type="submit" value="Prediksi">
+                </form>
+                <p class="red-text"> *note : hasil prediksi terdapat pada bagian akhir halaman</p>
+            </div>
+        </div>			
+    </section>
+    
+    {%if myklaster %}
+    <section id="about">
+        <div class="container">
+            <div class="row text-center">
+                <p>Wilayah {{kabupaten}} termasuk ke dalam klaster-{{myklaster}} di Sulawesi Selatan</p> 
+            </div>
+        </div>			
+    </section>
+        
+    {%endif%}
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+		<!-- SMOOTH SCROLL -->
+		<script src="{{url_for('static', filename = 'js/smooth-scroll.min.js')}}"></script>
+		<!-- PARALLAX IMG -->
+		<script src="{{url_for('static', filename = 'js/jquery.parallax-1.1.3.js')}}"></script>
+		<!-- SCROLL REVEAL -->
+		<script src="{{url_for('static', filename = 'js/scrollReveal.min.js')}}"></script>
+		<!-- FUNCTIONS -->
+		<script src="{{url_for('static', filename = 'js/functions.js')}}"></script>
+</body>
+</html>
